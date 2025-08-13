@@ -4,24 +4,46 @@
   <meta charset="UTF-8" />
   <title>2ch_Thread</title>
   <style>
-    @page { margin: 0; size: landscape; font-family: "MS PGothic", monospace; }
-    body { background-color: #EFEFEF; font-size: 17px; margin: 16px; }
-    .threadtitle { display: block; font-size: 21px; font-weight: bold; color: red; margin-bottom: 12px; }
-    .post { margin: 10px 0 14px; line-height: 1.7; }
-    .meta { display: block; color: #333; }
-    .no { font-weight: bold; margin-right: 4px; }
-    .name { color: blue; text-decoration: underline; font-weight: bold; }
-    .name-icchi { color: red; font-weight: bold; }
-    .name-icchi::before {
-      content: "★";
-      color: gold;
-      margin-right: 3px;
+    @page { margin: 0; size: landscape; font-family: "MS PGothIC", monospace; }
+    /* ====== 全体トーン（怖め） ====== */
+    body {
+      background: #0f0f10;
+      color: #e6e6e6;
+      font-size: 17px; margin: 16px;
     }
-    .date { color: #555; }
-    .milisec { color: slategray; font-size: 14px; }
-    .id { color: #555; margin-left: 6px; }
-    .con { padding-left: 40px; }
-    .go { color: blue; text-decoration: underline; }
+    .threadtitle {
+      display: block; font-size: 21px; font-weight: bold;
+      color: #ff2b2b; margin-bottom: 12px;
+      text-shadow: 0 0 4px rgba(255,43,43,0.45);
+    }
+    .post { margin: 10px 0 14px; line-height: 1.7; }
+    .meta { display: block; color: #cfcfcf; }
+    .no { font-weight: bold; margin-right: 4px; }
+    .name { color: #7dbbff; text-decoration: underline; font-weight: bold; }
+    /* イッチ（福岡民）だけ赤太字。★は撤去 */
+    .name-icchi { color: #ff5a5a; font-weight: bold; text-decoration: underline; }
+
+    .date { color: #9aa0a6; }
+    .milisec { color: #80868b; font-size: 14px; }
+    .id { color: #9aa0a6; margin-left: 6px; }
+    .con {
+      padding-left: 40px;
+      border-left: 1px dashed rgba(255,255,255,0.08);
+    }
+    .go { color: #7dbbff; text-decoration: underline; }
+
+    /* 時間経過の区切り（波線＋文言） */
+    .timegap-hr {
+      border: none; border-top: 3px dashed rgba(255,255,255,0.2);
+      margin: 20px 0;
+    }
+    .timegap-label {
+      text-align: center; color: #9aa0a6; margin: -4px 0 -4px;
+      letter-spacing: 1px;
+    }
+
+    /* 703以降・999以降で使っている別レイアウト番号表記の最小スタイル */
+    .number { font-weight: bold; margin-right: 6px; color: #cfcfcf; }
   </style>
 </head>
 <body>
@@ -105,6 +127,8 @@
   <div class="post">
     <span class="meta"><span class="no">15 ：</span><span class="name-icchi">福岡民</span>：<span class="date">2025/08/09(土) 21:21:08</span><span class="milisec">.35</span> <span class="id">ID:CAeMqRoXj</span></span>
     <div class="con"><span class="go">&gt;&gt;14</span><br>裏面って何やねんｗ</div>
+  </div>
+
   <div class="post">
     <span class="meta"><span class="no">16 ：</span><span class="name">風吹けば名無し</span>：<span class="date">2025/08/09(土) 21:21:42</span><span class="milisec">.02</span> <span class="id">ID:2yqPNg0mA</span></span>
     <div class="con">とりあえずこれは事件の匂いがする（確信）</div>
@@ -225,7 +249,7 @@
     <div class="con">ガチならすぐ貼ってくれ<br>気になって寝れんやん</div>
   </div>
 
-<div class="post">
+  <div class="post">
     <span class="meta"><span class="no">40 ：</span><span class="name">風吹けば名無し</span>：<span class="date">2025/08/09(土) 21:42:03</span><span class="milisec">.40</span> <span class="id">ID:wSkdT2qI</span></span>
     <div class="con">https://fubuchan.github.io/ningengoods/<br>ほい</div>
   </div>
@@ -261,7 +285,7 @@
   </div>
 
   <div class="post">
-    <span class="meta"><span class="no">47 ：</span><span class="name name-icchi">福岡民</span>：<span class="date">2025/08/09(土) 21:50:35</span><span class="milisec">.26</span> <span class="id">ID:CAeMqRoXj</span></span>
+    <span class="meta"><span class="no">47 ：</span><span class="name-icchi">福岡民</span>：<span class="date">2025/08/09(土) 21:50:35</span><span class="milisec">.26</span> <span class="id">ID:CAeMqRoXj</span></span>
     <div class="con">確かに文章全体のテンションが妙に冷静なのが嫌だ<br>ふざけてるならもっと雑になるはずなのに</div>
   </div>
 
@@ -271,66 +295,66 @@
   </div>
 
   <div class="post">
-    <span class="meta"><span class="no">49 ：</span><span class="name name-icchi">福岡民</span>：<span class="date">2025/08/09(土) 21:53:50</span><span class="milisec">.41</span> <span class="id">ID:CAeMqRoXj</span></span>
+    <span class="meta"><span class="no">49 ：</span><span class="name-icchi">福岡民</span>：<span class="date">2025/08/09(土) 21:53:50</span><span class="milisec">.41</span> <span class="id">ID:CAeMqRoXj</span></span>
     <div class="con">わかる、怖いけどちょっと惹かれる<br>モノとしての存在感が強すぎる</div>
   </div>
 
   <div class="post">
-  <span class="meta"><span class="no">50 ：</span><span class="name">風吹けば名無し</span>：<span class="date">2025/08/09(土) 21:55:02</span><span class="milisec">.12</span> <span class="id">ID:hF4x92Pb</span></span>
-  <div class="con">でもさ…なんでこんなもん欲しがるんだ？　普通じゃないよな</div>
-</div>
+    <span class="meta"><span class="no">50 ：</span><span class="name">風吹けば名無し</span>：<span class="date">2025/08/09(土) 21:55:02</span><span class="milisec">.12</span> <span class="id">ID:hF4x92Pb</span></span>
+    <div class="con">でもさ…なんでこんなもん欲しがるんだ？　普通じゃないよな</div>
+  </div>
 
-<div class="post">
-  <span class="meta"><span class="no">51 ：</span><span class="name">風吹けば名無し</span>：<span class="date">2025/08/09(土) 21:56:31</span><span class="milisec">.74</span> <span class="id">ID:tpE5ZcKn</span></span>
-  <div class="con">セブンの広告やろ　なんか狙った感じの異常さある<br>だいたいヤバいやつって、書き方が荒かったり誤字多かったりするやん？　これは違う<br>計画性あって、しかもじっくり考えた形跡がある</div>
-</div>
+  <div class="post">
+    <span class="meta"><span class="no">51 ：</span><span class="name">風吹けば名無し</span>：<span class="date">2025/08/09(土) 21:56:31</span><span class="milisec">.74</span> <span class="id">ID:tpE5ZcKn</span></span>
+    <div class="con">セブンの広告やろ　なんか狙った感じの異常さある<br>だいたいヤバいやつって、書き方が荒かったり誤字多かったりするやん？　これは違う<br>計画性あって、しかもじっくり考えた形跡がある</div>
+  </div>
 
-<div class="post">
-  <span class="meta"><span class="no">52 ：</span><span class="name name-icchi">福岡民</span>：<span class="date">2025/08/09(土) 21:57:28</span><span class="milisec">.41</span> <span class="id">ID:CAeMqRoXj</span></span>
-  <div class="con">流石にない<br>これ広告だとしたらリスクデカすぎる</div>
-</div>
+  <div class="post">
+    <span class="meta"><span class="no">52 ：</span><span class="name-icchi">福岡民</span>：<span class="date">2025/08/09(土) 21:57:28</span><span class="milisec">.41</span> <span class="id">ID:CAeMqRoXj</span></span>
+    <div class="con">流石にない<br>これ広告だとしたらリスクデカすぎる</div>
+  </div>
 
-<div class="post">
-  <span class="meta"><span class="no">53 ：</span><span class="name">風吹けば名無し</span>：<span class="date">2025/08/09(土) 21:58:54</span><span class="milisec">.03</span> <span class="id">ID:Lpx3v7Er</span></span>
-  <div class="con">い俺はコレクター説やと思うわ<br>色コードとか成分指定までしてるの、完全に収集癖の延長やろ</div>
-</div>
+  <div class="post">
+    <span class="meta"><span class="no">53 ：</span><span class="name">風吹けば名無し</span>：<span class="date">2025/08/09(土) 21:58:54</span><span class="milisec">.03</span> <span class="id">ID:Lpx3v7Er</span></span>
+    <div class="con">い俺はコレクター説やと思うわ<br>色コードとか成分指定までしてるの、完全に収集癖の延長やろ</div>
+  </div>
 
-<div class="post">
-  <span class="meta"><span class="no">54 ：</span><span class="name">風吹けば名無し</span>：<span class="date">2025/08/09(土) 22:00:17</span><span class="milisec">.56</span> <span class="id">ID:Wcn1iAqP</span></span>
-  <div class="con">それ人形とかフィギュアの延長みたいなもんか？</div>
-</div>
+  <div class="post">
+    <span class="meta"><span class="no">54 ：</span><span class="name">風吹けば名無し</span>：<span class="date">2025/08/09(土) 22:00:17</span><span class="milisec">.56</span> <span class="id">ID:Wcn1iAqP</span></span>
+    <div class="con">それ人形とかフィギュアの延長みたいなもんか？</div>
+  </div>
 
-<div class="post">
-  <span class="meta"><span class="no">55 ：</span><span class="name">風吹けば名無し</span>：<span class="date">2025/08/09(土) 22:01:43</span><span class="milisec">.29</span> <span class="id">ID:kT3gA2fX</span></span>
-  <div class="con">そうそう　でも規模がデカい<br>福岡市全域のセブンに並べろってのは結構ヤバいやつの犯行</div>
-</div>
+  <div class="post">
+    <span class="meta"><span class="no">55 ：</span><span class="name">風吹けば名無し</span>：<span class="date">2025/08/09(土) 22:01:43</span><span class="milisec">.29</span> <span class="id">ID:kT3gA2fX</span></span>
+    <div class="con">そうそう　でも規模がデカい<br>福岡市全域のセブンに並べろってのは結構ヤバいやつの犯行</div>
+  </div>
 
-<div class="post">
-  <span class="meta"><span class="no">56 ：</span><span class="name">風吹けば名無し</span>：<span class="date">2025/08/09(土) 22:03:18</span><span class="milisec">.70</span> <span class="id">ID:zNv9mHkK</span></span>
-  <div class="con">別生物説ある？<br>服のサイズ全部XL〜XXXLってのが人間離れしてるし、pH12の汗拭きシートとか普通の人間の肌やと無理やろ</div>
-</div>
+  <div class="post">
+    <span class="meta"><span class="no">56 ：</span><span class="name">風吹けば名無し</span>：<span class="date">2025/08/09(土) 22:03:18</span><span class="milisec">.70</span> <span class="id">ID:zNv9mHkK</span></span>
+    <div class="con">別生物説ある？<br>服のサイズ全部XL〜XXXLってのが人間離れしてるし、pH12の汗拭きシートとか普通の人間の肌やと無理やろ</div>
+  </div>
 
-<div class="post">
-  <span class="meta"><span class="no">57 ：</span><span class="name">風吹けば名無し</span>：<span class="date">2025/08/09(土) 22:04:20</span><span class="milisec">.48</span> <span class="id">ID:VnR9lPqF</span></span>
-  <div class="con">流石に宇宙人はないやろｗ　映画見すぎや</div>
-</div>
+  <div class="post">
+    <span class="meta"><span class="no">57 ：</span><span class="name">風吹けば名無し</span>：<span class="date">2025/08/09(土) 22:04:20</span><span class="milisec">.48</span> <span class="id">ID:VnR9lPqF</span></span>
+    <div class="con">流石に宇宙人はないやろｗ　映画見すぎや</div>
+  </div>
 
-<div class="post">
-  <span class="meta"><span class="no">58 ：</span><span class="name">風吹けば名無し</span>：<span class="date">2025/08/09(土) 22:05:55</span><span class="milisec">.14</span> <span class="id">ID:oHw92bAa</span></span>
-  <div class="con">でもさ、最近背の高いやつ増えてるやん　外国人もそうやけど、190cm超えとかザラやろ<br>もし単純にでかい生物が混ざってても、気づけんかもしれんで</div>
-</div>
+  <div class="post">
+    <span class="meta"><span class="no">58 ：</span><span class="name">風吹けば名無し</span>：<span class="date">2025/08/09(土) 22:05:55</span><span class="milisec">.14</span> <span class="id">ID:oHw92bAa</span></span>
+    <div class="con">でもさ、最近背の高いやつ増えてるやん　外国人もそうやけど、190cm超えとかザラやろ<br>もし単純にでかい生物が混ざってても、気づけんかもしれんで</div>
+  </div>
 
-<div class="post">
-  <span class="meta"><span class="no">59 ：</span><span class="name">風吹けば名無し</span>：<span class="date">2025/08/09(土) 22:07:41</span><span class="milisec">.99</span> <span class="id">ID:yXq3K5vM</span></span>
-  <div class="con">あー…確かに最近原宿でも肩幅でかい奴多すぎて道狭い<br>あれが全部筋トレマンとは限らんのか…</div>
-</div>
+  <div class="post">
+    <span class="meta"><span class="no">59 ：</span><span class="name">風吹けば名無し</span>：<span class="date">2025/08/09(土) 22:07:41</span><span class="milisec">.99</span> <span class="id">ID:yXq3K5vM</span></span>
+    <div class="con">あー…確かに最近原宿でも肩幅でかい奴多すぎて道狭い<br>あれが全部筋トレマンとは限らんのか…</div>
+  </div>
 
-<div class="post">
-  <span class="meta"><span class="no">60 ：</span><span class="name name-icchi">福岡民</span>：<span class="date">2025/08/09(土) 22:09:18</span><span class="milisec">.65</span> <span class="id">ID:CAeMqRoXj</span></span>
-  <div class="con">やめろや　そういうありそうでない説の残し方が一番怖いねん</div>
-</div>
+  <div class="post">
+    <span class="meta"><span class="no">60 ：</span><span class="name-icchi">福岡民</span>：<span class="date">2025/08/09(土) 22:09:18</span><span class="milisec">.65</span> <span class="id">ID:CAeMqRoXj</span></span>
+    <div class="con">やめろや　そういうありそうでない説の残し方が一番怖いねん</div>
+  </div>
 
-<div class="post">
+  <div class="post">
     <span class="meta"><span class="no">61 ：</span><span class="name">風吹けば名無し</span>：<span class="date">2025/08/09(土) 22:10:02</span><span class="milisec">.28</span> <span class="id">ID:Qm8v2aLe</span></span>
     <div class="con">今きたが そういやさっきのセブン（井尻2丁目店）にもこれ貼ってあったぞ<br>福岡や</div>
   </div>
@@ -430,275 +454,245 @@
     <div class="con">まぁでもここまでやった釣りなら逆に褒めるけどなｗ</div>
   </div>
 
-    <div class="post"><span class="num">82:</span> <span class="name" style="color:red;font-weight:bold;">福岡民★</span><br>
-すまん、全部釣りでした。<br>
-ちょっと皆の反応見てみたくて、あの張り紙とサイト、俺が作った
-</div>
+  <!-- 82〜117（イッチ自白〜悪ノリ拡散）。星は除去、イッチは name-icchi に統一 -->
+  <div class="post"><span class="meta"><span class="no">82 ：</span><span class="name-icchi">福岡民</span>：</span>
+    <div class="con">すまん、全部釣りでした。<br>ちょっと皆の反応見てみたくて、あの張り紙とサイト、俺が作った</div>
+  </div>
 
-<div class="post"><span class="num">83:</span> <span class="name">風吹けば名無し</span><br>
-え？？？？？？？イッチお前やったんかよｗ
-</div>
+  <div class="post"><span class="meta"><span class="no">83 ：</span><span class="name">風吹けば名無し</span>：</span>
+    <div class="con">え？？？？？？？イッチお前やったんかよｗ</div>
+  </div>
 
-<div class="post"><span class="num">84:</span> <span class="name">名無しさん</span><br>
-知　っ　て　た
-</div>
+  <div class="post"><span class="meta"><span class="no">84 ：</span><span class="name">名無しさん</span>：</span>
+    <div class="con">知　っ　て　た</div>
+  </div>
 
-<div class="post"><span class="num">85:</span> <span class="name">風吹けば名無し</span><br>
-やはり釣りかい、なんでや
-</div>
+  <div class="post"><span class="meta"><span class="no">85 ：</span><span class="name">風吹けば名無し</span>：</span>
+    <div class="con">やはり釣りかい、なんでや</div>
+  </div>
 
-<div class="post"><span class="num">86:</span> <span class="name">風吹けば名無し</span><br>
-確かに、なんでこんなんやるんや
-</div>
+  <div class="post"><span class="meta"><span class="no">86 ：</span><span class="name">風吹けば名無し</span>：</span>
+    <div class="con">確かに、なんでこんなんやるんや</div>
+  </div>
 
-<div class="post"><span class="num">87:</span> <span class="name" style="color:red;font-weight:bold;">福岡民★</span><br>
-—<br>
-最近、どこ行っても見た目で人を測る空気ばっかでさ<br>
-俺も顔がいいわけじゃないし、そういうの耳に入るたびにちょっと卑屈になる<br>
-人に見られてる気がするのがしんどいんや<br>
-—
-</div>
+  <div class="post"><span class="meta"><span class="no">87 ：</span><span class="name-icchi">福岡民</span>：</span>
+    <div class="con">—<br>最近、どこ行っても見た目で人を測る空気ばっかでさ<br>俺も顔がいいわけじゃないし、そういうの耳に入るたびにちょっと卑屈になる<br>人に見られてる気がするのがしんどいんや<br>—</div>
+  </div>
 
-<div class="post"><span class="num">88:</span> <span class="name">風吹けば名無し</span><br>
-気にすんなよｗｗｗ
-</div>
+  <div class="post"><span class="meta"><span class="no">88 ：</span><span class="name">風吹けば名無し</span>：</span>
+    <div class="con">気にすんなよｗｗｗ</div>
+  </div>
 
-<div class="post"><span class="num">89:</span> <span class="name">風吹けば名無し</span><br>
-まあおつw久々に楽しかったから許す
-</div>
+  <div class="post"><span class="meta"><span class="no">89 ：</span><span class="name">風吹けば名無し</span>：</span>
+    <div class="con">まあおつw久々に楽しかったから許す</div>
+  </div>
 
-<div class="post"><span class="num">90:</span> <span class="name">風吹けば名無し</span><br>
-いやまあでも、わかるわ<br>
-メンタルきついときそれあるよな
-</div>
+  <div class="post"><span class="meta"><span class="no">90 ：</span><span class="name">風吹けば名無し</span>：</span>
+    <div class="con">いやまあでも、わかるわ<br>メンタルきついときそれあるよな</div>
+  </div>
 
-<div class="post"><span class="num">91:</span> <span class="name">風吹けば名無し</span><br>
-正直、街歩いてても誰もお前のこと見てないぞｗ
-</div>
+  <div class="post"><span class="meta"><span class="no">91 ：</span><span class="name">風吹けば名無し</span>：</span>
+    <div class="con">正直、街歩いてても誰もお前のこと見てないぞｗ</div>
+  </div>
 
-<div class="post"><span class="num">92:</span> <span class="name">風吹けば名無し</span><br>
-↑こういうの言われても、しんどいときは関係ないんよな
-</div>
+  <div class="post"><span class="meta"><span class="no">92 ：</span><span class="name">風吹けば名無し</span>：</span>
+    <div class="con">↑こういうの言われても、しんどいときは関係ないんよな</div>
+  </div>
 
-<div class="post"><span class="num">93:</span> <span class="name">風吹けば名無し</span><br>
-—<br>
-そうそう<br>
-たぶん実際は誰も見てないんやろけど<br>
-今笑われてるかもってのはある<br>
-—
-</div>
+  <div class="post"><span class="meta"><span class="no">93 ：</span><span class="name">風吹けば名無し</span>：</span>
+    <div class="con">—<br>そうそう<br>たぶん実際は誰も見てないんやろけど<br>今笑われてるかもってのはある<br>—</div>
+  </div>
 
-<div class="post"><span class="num">94:</span> <span class="name">風吹けば名無し</span><br>
-イッチ普段なにしてるん
-</div>
+  <div class="post"><span class="meta"><span class="no">94 ：</span><span class="name">風吹けば名無し</span>：</span>
+    <div class="con">イッチ普段なにしてるん</div>
+  </div>
 
-<div class="post"><span class="num">95:</span> <span class="name" style="color:red;font-weight:bold;">福岡民★</span><br>
-倉庫で荷物運んでる。夏は汗だく、冬は手の皮割れる。
-</div>
+  <div class="post"><span class="meta"><span class="no">95 ：</span><span class="name-icchi">福岡民</span>：</span>
+    <div class="con">倉庫で荷物運んでる。夏は汗だく、冬は手の皮割れる。</div>
+  </div>
 
-<div class="post"><span class="num">96:</span> <span class="name">風吹けば名無し</span><br>
-それ中学のとき俺もあったわｗ<br>
-笑ってるやつ全員自分のこと笑ってる気がしてた
-</div>
+  <div class="post"><span class="meta"><span class="no">96 ：</span><span class="name">風吹けば名無し</span>：</span>
+    <div class="con">それ中学のとき俺もあったわｗ<br>笑ってるやつ全員自分のこと笑ってる気がしてた</div>
+  </div>
 
-<div class="post"><span class="num">97:</span> <span class="name">風吹けば名無し</span><br>
-俺は逆に視線欲しいタイプやからわからんけどな
-</div>
+  <div class="post"><span class="meta"><span class="no">97 ：</span><span class="name">風吹けば名無し</span>：</span>
+    <div class="con">俺は逆に視線欲しいタイプやからわからんけどな</div>
+  </div>
 
-<div class="post"><span class="num">98:</span> <span class="name">風吹けば名無し</span><br>
-でもさ、今回の件って、そんなお前が逆に人の目を集めることやったってのが面白いな
-</div>
+  <div class="post"><span class="meta"><span class="no">98 ：</span><span class="name">風吹けば名無し</span>：</span>
+    <div class="con">でもさ、今回の件って、そんなお前が逆に人の目を集めることやったってのが面白いな</div>
+  </div>
 
-<div class="post"><span class="num">99:</span> <span class="name" style="color:red;font-weight:bold;">福岡民★</span><br>
-—<br>
-多分、自分から見られにいったら楽になるかなって思ったんや<br>
-でも現実じゃ怖くてできんから、スレでやった<br>
-—
-</div>
+  <div class="post"><span class="meta"><span class="no">99 ：</span><span class="name-icchi">福岡民</span>：</span>
+    <div class="con">—<br>多分、自分から見られにいったら楽になるかなって思ったんや<br>でも現実じゃ怖くてできんから、スレでやった<br>—</div>
+  </div>
 
-<div class="post"><span class="num">100:</span> <span class="name">風吹けば名無し</span><br>
-ちょっと切ないなそれ
-</div>
+  <div class="post"><span class="meta"><span class="no">100 ：</span><span class="name">風吹けば名無し</span>：</span>
+    <div class="con">ちょっと切ないなそれ</div>
+  </div>
 
-<div class="post"><span class="num">101:</span> <span class="name">風吹けば名無し</span><br>
-じゃあお前、今回のでめちゃくちゃ視線集めたやんｗ
-</div>
+  <div class="post"><span class="meta"><span class="no">101 ：</span><span class="name">風吹けば名無し</span>：</span>
+    <div class="con">じゃあお前、今回のでめちゃくちゃ視線集めたやんｗ</div>
+  </div>
 
-<div class="post"><span class="num">102:</span> <span class="name">風吹けば名無し</span><br>
-せっかくやし、もっと置いてくるかこれｗ
-</div>
+  <div class="post"><span class="meta"><span class="no">102 ：</span><span class="name">風吹けば名無し</span>：</span>
+    <div class="con">せっかくやし、もっと置いてくるかこれｗ</div>
+  </div>
 
-<div class="post"><span class="num">103:</span> <span class="name">風吹けば名無し</span><br>
-（画像）イッチ元気出せよ<br>
-印刷したったで
-</div>
+  <div class="post"><span class="meta"><span class="no">103 ：</span><span class="name">風吹けば名無し</span>：</span>
+    <div class="con">（画像）イッチ元気出せよ<br>印刷したったで</div>
+  </div>
 
-<div class="post"><span class="num">104:</span> <span class="name">風吹けば名無し</span><br>
-ワイも近所のセブンにFAX送ったで
-</div>
+  <div class="post"><span class="meta"><span class="no">104 ：</span><span class="name">風吹けば名無し</span>：</span>
+    <div class="con">ワイも近所のセブンにFAX送ったで</div>
+  </div>
 
-<div class="post"><span class="num">105:</span> <span class="name">風吹けば名無し</span><br>
-ネットワークプリントの登録番号ここ貼っとくわ→（番号）<br>
-やりたい奴やれw
-</div>
+  <div class="post"><span class="meta"><span class="no">105 ：</span><span class="name">風吹けば名無し</span>：</span>
+    <div class="con">ネットワークプリントの登録番号ここ貼っとくわ→（番号）<br>やりたい奴やれw</div>
+  </div>
 
-<div class="post"><span class="num">106:</span> <span class="name">風吹けば名無し</span><br>
-イッチ元気だせ、ワイらがついてる
-</div>
+  <div class="post"><span class="meta"><span class="no">106 ：</span><span class="name">風吹けば名無し</span>：</span>
+    <div class="con">イッチ元気だせ、ワイらがついてる</div>
+  </div>
 
-<div class="post"><span class="num">107:</span> <span class="name" style="color:red;font-weight:bold;">福岡民★</span><br>
-あかん泣きそうや
-</div>
+  <div class="post"><span class="meta"><span class="no">107 ：</span><span class="name-icchi">福岡民</span>：</span>
+    <div class="con">あかん泣きそうや</div>
+  </div>
 
-<div class="post"><span class="num">108:</span> <span class="name">風吹けば名無し</span><br>
-地元のローソンで印刷してくるまっとけ
-</div>
+  <div class="post"><span class="meta"><span class="no">108 ：</span><span class="name">風吹けば名無し</span>：</span>
+    <div class="con">地元のローソンで印刷してくるまっとけ</div>
+  </div>
 
-<div class="post"><span class="num">109:</span> <span class="name">風吹けば名無し</span><br>
-ローソンは関係ないやろｗｗｗｗｗ
-</div>
+  <div class="post"><span class="meta"><span class="no">109 ：</span><span class="name">風吹けば名無し</span>：</span>
+    <div class="con">ローソンは関係ないやろｗｗｗｗｗ</div>
+  </div>
 
-<div class="post"><span class="num">110:</span> <span class="name">風吹けば名無し</span><br>
-（画像）貼ってきた<br>
-店員が一瞬見られたけど何も言われんかった
-</div>
+  <div class="post"><span class="meta"><span class="no">110 ：</span><span class="name">風吹けば名無し</span>：</span>
+    <div class="con">（画像）貼ってきた<br>店員が一瞬見られたけど何も言われんかった</div>
+  </div>
 
-<div class="post"><span class="num">111:</span> <span class="name">風吹けば名無し</span><br>
-こっちは夜勤バイト中にこっそり貼った<br>
-明日社員来たら外すけどな
-</div>
+  <div class="post"><span class="meta"><span class="no">111 ：</span><span class="name">風吹けば名無し</span>：</span>
+    <div class="con">こっちは夜勤バイト中にこっそり貼った<br>明日社員来たら外すけどな</div>
+  </div>
 
-<div class="post"><span class="num">112:</span> <span class="name">風吹けば名無し</span><br>
-（画像）設置完了<br>
-イッチ、東京から応援してるで
-</div>
+  <div class="post"><span class="meta"><span class="no">112 ：</span><span class="name">風吹けば名無し</span>：</span>
+    <div class="con">（画像）設置完了<br>イッチ、東京から応援してるで</div>
+  </div>
 
-<div class="post"><span class="num">113:</span> <span class="name">風吹けば名無し</span><br>
-Xにセブンで変な張り紙見たって投稿何個かあるな
-</div>
+  <div class="post"><span class="meta"><span class="no">113 ：</span><span class="name">風吹けば名無し</span>：</span>
+    <div class="con">Xにセブンで変な張り紙見たって投稿何個かあるな</div>
+  </div>
 
-<div class="post"><span class="num">114:</span> <span class="name">風吹けば名無し</span><br>
-もうスレ民以外にバレてんじゃんｗ
-</div>
+  <div class="post"><span class="meta"><span class="no">114 ：</span><span class="name">風吹けば名無し</span>：</span>
+    <div class="con">もうスレ民以外にバレてんじゃんｗ</div>
+  </div>
 
-<div class="post"><span class="num">115:</span> <span class="name">風吹けば名無し</span><br>
-俺の大学のサークルLINEでも回ってきたわ<br>
-「これ誰がやったん？」ってざわついてる
-</div>
+  <div class="post"><span class="meta"><span class="no">115 ：</span><span class="name">風吹けば名無し</span>：</span>
+    <div class="con">俺の大学のサークルLINEでも回ってきたわ<br>「これ誰がやったん？」ってざわついてる</div>
+  </div>
 
-<div class="post"><span class="num">116:</span> <span class="name" style="color:red;font-weight:bold;">福岡民★</span><br>
-—<br>
-なんか怖くなってきたw<br>
-—
-</div>
+  <div class="post"><span class="meta"><span class="no">116 ：</span><span class="name-icchi">福岡民</span>：</span>
+    <div class="con">—<br>なんか怖くなってきたw<br>—</div>
+  </div>
 
-<div class="post"><span class="num">117:</span> <span class="name">風吹けば名無し</span><br>
-お前が種まいたんやから責任持てｗ
-</div>
-<hr style="border: none; border-top: 3px dashed #ccc; margin: 20px 0;">
-<p style="text-align:center; color:#999;">―― 3時間後 ――</p>
-<hr style="border: none; border-top: 3px dashed #ccc; margin: 20px 0;">
+  <div class="post"><span class="meta"><span class="no">117 ：</span><span class="name">風吹けば名無し</span>：</span>
+    <div class="con">お前が種まいたんやから責任持てｗ</div>
+  </div>
 
-<!-- 703レス目以降 -->
-<div class="post">
-  <span class="number">703:</span> <span class="name">風吹けば名無し</span><br>
-  Xで「人間グッズ」タグ付けて投稿してる奴出てきたぞ<br>
-  もう関係ない奴らが勝手にネタ化し始めてるｗ
-</div>
+  <!-- 3時間後 -->
+  <hr class="timegap-hr">
+  <p class="timegap-label">―― 3時間後 ――</p>
+  <hr class="timegap-hr">
 
-<div class="post">
-  <span class="number">704:</span> <span class="name" style="color:red; font-weight:bold;">福岡民</span><br>
-  ハッシュタグ伸びてて草
-</div>
+  <!-- 703〜710（トレンド入り直前の拡散） -->
+  <div class="post">
+    <span class="number">703:</span> <span class="name">風吹けば名無し</span><br>
+    Xで「人間グッズ」タグ付けて投稿してる奴出てきたぞ<br>
+    もう関係ない奴らが勝手にネタ化し始めてるｗ
+  </div>
 
-<div class="post">
-  <span class="number">705:</span> <span class="name">風吹けば名無し</span><br>
-  ちな人間グッズxの下位トレンド入りしてるで
-</div>
+  <div class="post">
+    <span class="number">704:</span> <span class="name-icchi">福岡民</span><br>
+    ハッシュタグ伸びてて草
+  </div>
 
-<div class="post">
-  <span class="number">706:</span> <span class="name">風吹けば名無し</span><br>
-  うおおおおおおおおおおおおおおおお
-</div>
+  <div class="post">
+    <span class="number">705:</span> <span class="name">風吹けば名無し</span><br>
+    ちな人間グッズxの下位トレンド入りしてるで
+  </div>
 
-<div class="post">
-  <span class="number">707:</span> <span class="name">風吹けば名無し</span><br>
-  これ全国の暇人も乗っかり始めてるな<br>
-  神奈川で見たって写真も上がってるｗ
-</div>
+  <div class="post">
+    <span class="number">706:</span> <span class="name">風吹けば名無し</span><br>
+    うおおおおおおおおおおおおおおおお
+  </div>
 
-<div class="post">
-  <span class="number">708:</span> <span class="name">風吹けば名無し</span><br>
-  なんか祭り感出てきたな
-</div>
+  <div class="post">
+    <span class="number">707:</span> <span class="name">風吹けば名無し</span><br>
+    これ全国の暇人も乗っかり始めてるな<br>
+    神奈川で見たって写真も上がってるｗ
+  </div>
 
-<div class="post">
-  <span class="number">709:</span> <span class="name" style="color:red; font-weight:bold;">福岡民</span><br>
-  —<br>
-  ほんとに広がってるんやなあ<br>
-  —
-</div>
+  <div class="post">
+    <span class="number">708:</span> <span class="name">風吹けば名無し</span><br>
+    なんか祭り感出てきたな
+  </div>
 
-<div class="post">
-  <span class="number">710:</span> <span class="name">風吹けば名無し</span><br>
-  お前が一番驚いてるの草
-</div>
+  <div class="post">
+    <span class="number">709:</span> <span class="name-icchi">福岡民</span><br>
+    —<br>ほんとに広がってるんやなあ<br>—
+  </div>
 
-<!-- 710レス目 -->
-<div class="post">
-  <span class="number">710:</span> <span class="name">風吹けば名無し</span><br>
-  お前が一番驚いてるの草
-</div>
+  <div class="post">
+    <span class="number">710:</span> <span class="name">風吹けば名無し</span><br>
+    お前が一番驚いてるの草
+  </div>
 
-<!-- 1週間後の区切り -->
-<hr style="border: none; border-top: 3px dashed #ccc; margin: 20px 0;">
-<p style="text-align:center; color:#999;">―― 1週間後 ――</p>
-<hr style="border: none; border-top: 3px dashed #ccc; margin: 20px 0;">
+  <!-- 1週間後 -->
+  <hr class="timegap-hr">
+  <p class="timegap-label">―― 1週間後 ――</p>
+  <hr class="timegap-hr">
 
-<!-- 999〜1005レス -->
-<div class="post">
-  <span class="number">999:</span> <span class="name" style="color:red; font-weight:bold;">福岡民</span><br>
-  明日リリースやから言っとくわ…ワイ実はセブンの社員でした。<br><br>
-  今回の「人間グッズ」は、社内の販促チームで企画したテストキャンペーンや。<br>
-  貼り紙もQRもFAXも、全部チームで準備したもんやし、店舗側にも事前に話は通してた。<br>
-  ただ、スレの反応が欲しかったから、現場スタッフや広報じゃなく、ワイが1スレ民として投下したんや。最初の奈良屋と井尻でネタが止まった時は「これアウトかも」って思ったけど、みんなが勝手に悪ノリしてくれて一気に流れきたわ。<br>
-  そのままトレンドまで行ったのは、完全にお前らのおかげや。<br>
-  明日から都市部の数店舗で本当に「人間グッズ」置く予定やけど、このスレの勢いと空気感は社内でも話題になってて、「またやろうぜ」って声まで出てる。<br>
-  ほんまにありがとう。
-</div>
+  <!-- 999〜1005（オチ：公式告白） -->
+  <div class="post">
+    <span class="number">999:</span> <span class="name-icchi">福岡民</span><br>
+    明日リリースやから言っとくわ…ワイ実はセブンの社員でした。<br><br>
+    今回の「人間グッズ」は、社内の販促チームで企画したテストキャンペーンや。<br>
+    貼り紙もQRもFAXも、全部チームで準備したもんやし、店舗側にも事前に話は通してた。<br>
+    ただ、スレの反応が欲しかったから、現場スタッフや広報じゃなく、ワイが1スレ民として投下したんや。最初の奈良屋と井尻でネタが止まった時は「これアウトかも」って思ったけど、みんなが勝手に悪ノリしてくれて一気に流れきたわ。<br>
+    そのままトレンドまで行ったのは、完全にお前らのおかげや。<br>
+    明日から都市部の数店舗で本当に「人間グッズ」置く予定やけど、このスレの勢いと空気感は社内でも話題になってて、「またやろうぜ」って声まで出てる。<br>
+    ほんまにありがとう。
+  </div>
 
-<div class="post">
-  <span class="number">1000:</span> <span class="name">風吹けば名無し</span><br>
-  は？？？公式やったんかｗｗｗｗｗｗｗｗｗ
-</div>
+  <div class="post">
+    <span class="number">1000:</span> <span class="name">風吹けば名無し</span><br>
+    は？？？公式やったんかｗｗｗｗｗｗｗｗｗ
+  </div>
 
-<div class="post">
-  <span class="number">1001:</span> <span class="name">風吹けば名無し</span><br>
-  てっきり頭おかしいやつの仕業だと思ってたのに
-</div>
+  <div class="post">
+    <span class="number">1001:</span> <span class="name">風吹けば名無し</span><br>
+    てっきり頭おかしいやつの仕業だと思ってたのに
+  </div>
 
-<div class="post">
-  <span class="number">1002:</span> <span class="name">風吹けば名無し</span><br>
-  公式がここまで全力で悪ふざけするんか…好き
-</div>
+  <div class="post">
+    <span class="number">1002:</span> <span class="name">風吹けば名無し</span><br>
+    公式がここまで全力で悪ふざけするんか…好き
+  </div>
 
-<div class="post">
-  <span class="number">1003:</span> <span class="name">風吹けば名無し</span><br>
-  明日セブン行くわ、完売させたる
-</div>
+  <div class="post">
+    <span class="number">1003:</span> <span class="name">風吹けば名無し</span><br>
+    明日セブン行くわ、完売させたる
+  </div>
 
-<div class="post">
-  <span class="number">1004:</span> <span class="name">風吹けば名無し</span><br>
-  企画チームも見てたってのがなんか嬉しいわ
-</div>
+  <div class="post">
+    <span class="number">1004:</span> <span class="name">風吹けば名無し</span><br>
+    企画チームも見てたってのがなんか嬉しいわ
+  </div>
 
-<div class="post">
-  <span class="number">1005:</span> <span class="name">風吹けば名無し</span><br>
-  次やる時もまた教えろよ、乗っかるから
-</div>
-
-
+  <div class="post">
+    <span class="number">1005:</span> <span class="name">風吹けば名無し</span><br>
+    次やる時もまた教えろよ、乗っかるから
+  </div>
 
 </body>
 </html>
-
