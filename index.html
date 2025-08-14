@@ -16,7 +16,13 @@
       color: #ff2b2b; margin-bottom: 12px;
       text-shadow: 0 0 4px rgba(255,43,43,0.45);
     }
-    .post { margin: 10px 0 14px; line-height: 1.7; }
+    /* ====== 間隔を少し広げる ====== */
+    .post { margin: 18px 0 26px; }
+    .post + .post { margin-top: 30px; }        /* 連続投稿の上マージン強め */
+    .era { margin: 8px 0 12px; }               /* 時期ブロックの外側 */
+    .timegap-hr { margin: 36px 0; }            /* 「2日後」「1週間後」の波線を強調 */
+    .timegap-label { margin: -2px 0 -2px; }    /* ラベルの詰まり微調整 */
+
     .meta { display: block; color: #cfcfcf; }
     .no { font-weight: bold; margin-right: 4px; }
     .name { color: #7dbbff; text-decoration: underline; font-weight: bold; }
@@ -43,6 +49,49 @@
     }
   </style>
 </head>
+<script>
+(() => {
+  // 時期ごとのIDプールサイズ（＝同時期に登場するIDの種類の数）
+  const poolSizes = { start: 6, "2d": 20, "1w": 60 };
+
+  const idChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  const genId = (len = 9) => {
+    let s = "";
+    for (let i = 0; i < len; i++) s += idChars[Math.floor(Math.random() * idChars.length)];
+    return s;
+  };
+  const makePool = (n) => {
+    const set = new Set();
+    while (set.size < n) set.add(genId());
+    return Array.from(set);
+  };
+
+  // 各時期ブロックを処理
+  for (const [eraKey, size] of Object.entries(poolSizes)) {
+    const wrap = document.querySelector(`.era-${eraKey}`);
+    if (!wrap) continue;
+
+    const pool = makePool(size);
+    let cursor = 0;
+
+    wrap.querySelectorAll(".post .meta").forEach((meta) => {
+      const nameEl = meta.querySelector(".name, .name-icchi");
+      const idEl = meta.querySelector(".id");
+      if (!nameEl || !idEl) return;
+
+      // 福岡民（イッチ）はID固定、その他は“風吹けば名無し”と“名無しさん”のみ対象
+      const nameText = nameEl.textContent.trim();
+      const isIcchi = nameEl.classList.contains("name-icchi");
+      if (isIcchi) return;
+      if (nameText !== "風吹けば名無し" && nameText !== "名無しさん") return;
+
+      idEl.textContent = "ID:" + pool[cursor % pool.length];
+      cursor++;
+    });
+  }
+})();
+</script>
+
 <body>
 
   <span class="threadtitle">【悲報】近所のセブンにヤバい張り紙が貼られてたんだが…</span>
